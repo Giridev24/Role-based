@@ -18,7 +18,7 @@ const secret_key = process.env.SECRET__KEY;
 
 
 app.use(cors({
-  origin: ["http://localhost:5173"],
+  origin: ["https://role-based-client.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
