@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.f {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+
+.ids p{
+ letter-spacing: 1px;
+margin: 12px 0px;
+ 
+}
+
+.login {
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  width: 20vw;
+  height: 42vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form h3{
+  letter-spacing: 1px;
+  font-size: 22px;
+  color: black;
+}
+
+form label {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 18px;
+}
+
+form input{
+  border: 2px solid rgb(164, 164, 164);
+  border-radius: 4px;
+  height: 30px;
+ 
+}
+
+form input::placeholder {
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0.5;
+  color: gray;
+ 
+ 
+}
+.shake {
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(0);
+
+  animation: shake 0.5s ease-in-out forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  0% { transform: translateX(-10px); }
+  25% { transform: translateX(10px); }
+  50% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+  .login {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 35px;
+    border-radius: 10px;
+    width: 40vw;
+    height: 60vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .login {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 35px;
+    border-radius: 10px;
+    width: 65vw;
+    height: 42vh;
+    margin-left: 15px;
+  }
+
+  .ids p{
+    letter-spacing: 1px;
+   font-size: 12px;
+   margin: 10px 0px;
+    
+   }
+
+}
