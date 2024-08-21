@@ -75,8 +75,6 @@ function Login() {
   };
 
   return (
-    <>
-       <h4 className="text-white text-center mb-auto ms-auto mt-2"># Role-Based Access Control</h4>
     <div className="f">
       
       <div className="ids p-md-5" data-aos="fade-in">
@@ -118,7 +116,7 @@ function Login() {
         </form>
       </div>
       <Toaster />
-    </div> </>
+    </div>
   );
 }
 
