@@ -81,11 +81,11 @@ function Login() {
      <div className="d-flex">
      <div className="ids bg- p-md-5" data-aos="fade-in">
         <h4 className="text-white">Clients</h4>
-        <p className="text-white">tom : 1212</p>
-        <p className="text-white">jerry : 2121</p>
-        <p className="text-white">spike : 3232</p> <hr className="text-white" />
+        <p className="text-white">Tom : 1212</p>
+        <p className="text-white">Jerry : 2121</p>
+        <p className="text-white">Spike : 3232</p> <hr className="text-white" />
         <h4 className="text-white">Admin</h4>
-        <p className="text-white">ceo : 4141</p>
+        <p className="text-white">Ceo : 4141</p>
       </div>
       <div className="login">
         <form onSubmit={handleSubmit}>
