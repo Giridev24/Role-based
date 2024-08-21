@@ -100,9 +100,17 @@ form input::placeholder {
     margin-left: 15px;
   }
 
+form input{
+  border: 2px solid rgb(164, 164, 164);
+  border-radius: 4px;
+  height: 34px;
+ 
+}
+
+  
 form label {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
 }
   
   .ids p{
