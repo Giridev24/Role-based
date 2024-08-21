@@ -147,7 +147,7 @@ const Client = () => {
                   onClick={() =>
                     handleEdit(image._id, image.name, image.adhaar, image.dob)
                   }
-                  className="btn btn-outline-primary btn-sm mx-1 p-0 px-2 shadow font-weight-normal"
+                  className="btn btn-outline-dark btn-sm mx-1 p-0 px-2 shadow font-weight-normal"
                 >
                   Edit
                 </a>
