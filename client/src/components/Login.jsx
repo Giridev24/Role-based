@@ -76,7 +76,7 @@ function Login() {
 
   return (
     <div className="f">
-      <div className="ids bg- p-md-5" data-aos="fade-in">
+      <div className="ids p-md-5" data-aos="fade-in">
         <h4 className="text-white">Clients</h4>
         <p className="text-white">tom : 1212</p>
         <p className="text-white">jerry : 2121</p>
