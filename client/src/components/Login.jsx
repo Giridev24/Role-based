@@ -76,7 +76,7 @@ function Login() {
 
   return (
     <div className="f">
-       <h4 className="text-white text-center mb-auto ml-auto"># Role-Based Access Control</h4>
+       <h4 className="text-white text-center mb-auto mx-auto"># Role-Based Access Control</h4>
       <div className="ids p-md-5" data-aos="fade-in">
      
         <h4 className="text-white">Clients</h4>
