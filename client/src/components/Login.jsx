@@ -12,6 +12,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,6 +38,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const result = await axios.post(`${baseUrl}/login`, {
         email,
@@ -69,6 +71,8 @@ function Login() {
         console.error("Error logging in:", error);
         handleShake("Network error. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -109,11 +113,19 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <br />
-              <button className="btn btn-primary btn-sm mt-3 mb-3">Login</button>
-              {errorMessage && (
-                <p id="error-message" className="error-message text-danger">
-                  {errorMessage}
+              <button className="btn btn-primary btn-sm mt-3 mb-3" disabled={loading}>
+                Login
+              </button>
+              {loading ? (
+                <p id="error-message" style={{ color: 'yellow', fontSize: '12px', letterSpacing: '1px' }}>
+                  Loading...
                 </p>
+              ) : (
+                errorMessage && (
+                  <p id="error-message" className="error-message text-danger">
+                    {errorMessage}
+                  </p>
+                )
               )}
             </form>
           </div>
