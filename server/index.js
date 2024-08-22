@@ -17,13 +17,16 @@ const port = process.env.PORT;
 const secret_key = process.env.SECRET__KEY;
 
 
-app.use(cors({
-  origin: ["https://role-based-client.vercel.app"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+const corsOptions = {
+  origin: 'https://role-based-client.vercel.app',
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
   credentials: true,
-}));
-app.use(cookieparser())
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']
+};
 
+
+app.use(cors(corsOptions));
+app.use(cookieparser())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 
