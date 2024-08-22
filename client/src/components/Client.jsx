@@ -4,8 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./client.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { baseUrl } from "./Urls";  
-
+import { baseUrl } from "./Urls";
 
 const Client = () => {
   const [image, setImage] = useState(null);
@@ -13,6 +12,7 @@ const Client = () => {
   const [editedName, setEditedName] = useState("");
   const [editedAdhaar, setEditedAdhaar] = useState("");
   const [editedDob, setEditedDob] = useState("");
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate(); 
   const { email } = useParams();
 
@@ -30,6 +30,8 @@ const Client = () => {
         setImage(filteredData[0]);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -81,9 +83,27 @@ const Client = () => {
   };
 
   return (
-    <div className="co" style={{height:"100vh"}} >
-
-      {image && (
+    <div className="co" style={{ height: "100vh", position: "relative" }}>
+      {loading && (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            padding: "10px",
+            color: 'gray',
+            fontSize: '16px',
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            width: "100%",
+            textAlign: "center",
+            zIndex: 1000
+          }}
+        >
+          Loading...
+        </div>
+      )}
+      {!loading && image && (
         <>
           <div
             key={image._id}
