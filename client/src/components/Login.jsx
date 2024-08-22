@@ -117,7 +117,7 @@ function Login() {
                 Login
               </button>
               {loading ? (
-                <p id="error-message" style={{ color: 'yellow', fontSize: '12px', letterSpacing: '1px' }}>
+                <p id="error-message"  className="text-warning" style={{fontSize: '14px', letterSpacing: '1px' }}>
                   Loading...
                 </p>
               ) : (
