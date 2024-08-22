@@ -6,8 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Toaster, toast } from "react-hot-toast";
-import { baseUrl } from "./Urls";  
-
+import { baseUrl } from "./Urls";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -38,7 +37,6 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
     try {
       const result = await axios.post(`${baseUrl}/login`, {
         email,
@@ -76,52 +74,53 @@ function Login() {
 
   return (
     <div className="f">
-       <div >
-       <h4 style="position: absolute; top: 0; right: 0; margin: 10px; color: white; text-align: center;">
-  # Role-Based Access Control
-</h4>
+      <div>
+        <h4 style={{ position: 'absolute', top: 0, right: 0, margin: '10px', color: 'white', textAlign: 'center' }}>
+          # Role-Based Access Control
+        </h4>
 
-     <div className="d-flex">
-     <div className="ids bg- p-md-5" data-aos="fade-in">
-        <h4 className="text-white">Clients</h4>
-        <p className="text-white">Tom : 1212</p>
-        <p className="text-white">Jerry : 2121</p>
-        <p className="text-white">Spike : 3232</p> <hr className="text-white" />
-        <h4 className="text-white">Admin</h4>
-        <p className="text-white">Ceo : 4141</p>
+        <div className="d-flex">
+          <div className="ids bg- p-md-5" data-aos="fade-in">
+            <h4 className="text-white">Clients</h4>
+            <p className="text-white">Tom : 1212</p>
+            <p className="text-white">Jerry : 2121</p>
+            <p className="text-white">Spike : 3232</p>
+            <hr className="text-white" />
+            <h4 className="text-white">Admin</h4>
+            <p className="text-white">Ceo : 4141</p>
+          </div>
+          <div className="login">
+            <form onSubmit={handleSubmit}>
+              <h3>Login</h3>
+              <label>Username</label> <br />
+              <input
+                type="text"
+                className="mb-2"
+                name="email"
+                placeholder="Enter your username"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <br />
+              <label>Password</label> <br />
+              <input
+                type="password"
+                placeholder="Enter your password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <br />
+              <button className="btn btn-primary btn-sm mt-3 mb-3">Login</button>
+              {errorMessage && (
+                <p id="error-message" className="error-message text-danger">
+                  {errorMessage}
+                </p>
+              )}
+            </form>
+          </div>
+
+          <Toaster />
+        </div>
       </div>
-      <div className="login">
-        <form onSubmit={handleSubmit}>
-          <h3>Login</h3>
-          <label>Username</label> <br />
-          <input
-            type="text"
-            className="mb-2"
-            name="email"
-            placeholder="Enter your username"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <label>Password</label> <br />
-          <input
-            type="password"
-            placeholder="Enter your password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <button className="btn btn-primary btn-sm mt-3 mb-3">Login</button>
-          {errorMessage && (
-            <p id="error-message" className="error-message text-danger">
-              {errorMessage}
-            </p>
-          )}
-        </form>
-      </div>
-    
-      <Toaster />
-     </div>
-       </div>
     </div>
   );
 }
