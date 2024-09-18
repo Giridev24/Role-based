@@ -45,9 +45,9 @@ const Admin = () => {
     fetchData();
   }, [navigate]);
 
-  const handleDelete = (id) => {
+ const handleDelete = (id) => {
     axios
-      .delete(`${baseUrl}/admin/${id}`)
+      .put(`${baseUrl}/admindelete/${id}`)
       .then(() => {
         setImages(prevImages => prevImages.filter(image => image._id !== id));
       })
