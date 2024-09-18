@@ -177,8 +177,8 @@ app.post("/signup", (req, res) => {
 
 app.get("/admin", async (req, res) => {
   try {
-    const allData = await imageModel.find();
-    res.json(allData);
+    const visibleData = await imageModel.find({ visibility: "show" });
+    res.json(visibleData);
   } catch (error) {
     console.error("Error fetching data:", error);
     res.status(500).send("Error fetching data");
