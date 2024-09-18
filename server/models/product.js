@@ -8,6 +8,7 @@ const imgSchema = new mongoose.Schema({
     data: Buffer,
     contentType: String,
   },
+   visibility: String
 });
 
 module.exports = ImageModel = mongoose.model("Image", imgSchema);
