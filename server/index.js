@@ -207,11 +207,29 @@ app.put("/admin/:id", async (req, res) => {
   }
 });
 
-app.delete("/admin/:id", async (req, res) => {
+
+setInterval(async () => {
+  try {
+    await imageModel.updateMany(
+      { visibility: "dontshow" },
+      { $set: { visibility: "show" } }
+    );
+    console.log("Visibility updated back to 'show'");
+  } catch (error) {
+    console.error("Error updating visibility:", error);
+  }
+}, 100000);
+
+
+app.put("/admindelete/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    const deleteproduct = await imageModel.findByIdAndDelete(id);
+    const deleteproduct = await imageModel.findByIdAndUpdate(
+      id,
+      { visibility: "dontshow" },
+      { new: true }
+    );
 
     if (!deleteproduct) {
       return res.status(404).json({ error: "Item not found" });
@@ -223,7 +241,6 @@ app.delete("/admin/:id", async (req, res) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.listen(port, () => {
