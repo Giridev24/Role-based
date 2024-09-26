@@ -71,20 +71,7 @@ app.post("/upload", upload.single("testImage"), (req, res) => {
     });
 });
 
-/*
-const verifyAdmin = (req,res,next) =>{
-  const token = req.cookies.token;
-  if(!token){
-    return res.json("the token was not available")
-  } else{
-    jwt.verify(token,"jwt-secret-key", (err,decoded) => {
-          if(err) return res.json("token is wrong")
-            next()
-    })
-  }
-}*/
 
-//new
 const verifyToken = async (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
   if (!token) return res.status(401).json({ success: false, msg: 'Token not available' });
@@ -101,33 +88,6 @@ const verifyToken = async (req, res, next) => {
 };
 
 
-/*
-app.post("/login", (req, res) => {
-  const { email, password } = req.body;
-
-  User.findOne({ email: email })
-    .then((user) => {
-      if (user) {
-        bcrypt.compare(password, user.password, (err, response) => {
-          if (response) {
-            const token = jwt.sign({email:user.email}, "jwt-secret-key",{expiresIn:"1d"})
-            res.cookie("token",token);
-            res.json({ message: "success", userrole: user.userrole, email: user.email });
-          } else {
-            res.status(401).json({ message: "The password is incorrect" });
-          }
-        });
-      } else {
-        res.status(404).json({ message: "User not existing" });
-      }
-    })
-    .catch((err) => {
-      console.error("Error during login:", err);
-      res.status(500).json({ message: "Internal Server Error" });
-    });
-});*/
-
-//new
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
   console.log(email,password)
@@ -218,7 +178,7 @@ setInterval(async () => {
   } catch (error) {
     console.error("Error updating visibility:", error);
   }
-}, 100000);
+}, 60000);
 
 
 app.put("/admindelete/:id", async (req, res) => {
