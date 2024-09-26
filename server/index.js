@@ -178,7 +178,7 @@ setInterval(async () => {
   } catch (error) {
     console.error("Error updating visibility:", error);
   }
-}, 6000);
+}, 60000);
 
 
 app.put("/admindelete/:id", async (req, res) => {
